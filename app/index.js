@@ -8,6 +8,25 @@ const USER_DATA = {
   imageUrl: 'http://placekitten.com/g/200/200'
 }
 
+class Link extends Component {
+
+  _changeURL = () => {
+    window.location.replace(this.props.href);
+  }
+
+  render() {
+    return (
+      <span
+        style={{color: 'blue', cursor: 'pointer'}}
+        onClick={this._changeURL}
+      >
+        {this.props.children}
+      </span>
+    )
+  }
+
+}
+
 class ProfilePic extends Component {
   render() {
     return (
@@ -20,9 +39,9 @@ class ProfileLink extends Component {
   render() {
     return (
       <div>
-        <a href={'https://www.github.com/' + this.props.username}>
+        <Link href={'https://www.github.com/' + this.props.username}>
           {this.props.username}
-        </a>
+        </Link>
       </div>
     )
   }
