@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import styles from '../styles';
+import Prompt from '../components/Prompt';
 
 class PromptContainer extends Component {
   constructor(props, context) {
@@ -10,13 +10,13 @@ class PromptContainer extends Component {
     }
   }
 
-  _onUpdateUser = (e) => {
+  _handleUpdateUser = (e) => {
     this.setState({
       username: e.target.value
     });
   }
 
-  _onSubmitUser = (e) => {
+  _handleSubmitUser = (e) => {
     e.preventDefault();
 
     var username = this.state.username;
@@ -39,28 +39,12 @@ class PromptContainer extends Component {
 
   render() {
     return (
-      <div className="jumbotron col-sm-6 offset-sm-3 text-sm-center" style={styles.transparentBg}>
-        <h1>{this.props.route.header}</h1>
-        <div className="col-sm-12">
-          <form onSubmit={this._onSubmitUser}>
-            <div className="form-group">
-              <input
-                className="form-control"
-                placeholder="Github Username"
-                onChange={this._onUpdateUser}
-                value={this.state.username}
-                type="text" />
-            </div>
-            <div className="form-group col-sm-4 offset-sm-4">
-              <button
-                className="btn btn-block btn-success"
-                type="submit">
-                  Continue
-              </button>
-            </div>
-          </form>
-      </div>
-    </div>
+      <Prompt
+        onSubmitUser={this._handleSubmitUser}
+        onUpdateUser={this._handleUpdateUser}
+        header={this.props.route.header}
+        username={this.state.username}
+      />
     );
   }
 }
