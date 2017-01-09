@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import ConfirmBattle from '../components/ConfirmBattle';
+import GithubHelpers from '../utils/GithubHelpers';
 
 class ConfirmBattleContainer extends Component {
   constructor(props, context) {
@@ -18,7 +19,10 @@ class ConfirmBattleContainer extends Component {
 
   componentDidMount() {
     let query = this.props.location.query;
-    console.log('componentDidMount');
+    GithubHelpers.getPlayersInfo([query.playerOne, query.playerTwo])
+      .then( (players) => {
+        console.log("PLAYERS", players);
+      })
   }
 
   componentWillReceiveProps(nextProps) {
