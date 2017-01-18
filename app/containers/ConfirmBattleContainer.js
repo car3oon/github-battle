@@ -9,7 +9,7 @@ class ConfirmBattleContainer extends Component {
     context.router
     this.state = {
       isLoading: true,
-      playerInfo: []
+      playersInfo: []
     }
   }
 
@@ -20,9 +20,13 @@ class ConfirmBattleContainer extends Component {
   componentDidMount() {
     let query = this.props.location.query;
     GithubHelpers.getPlayersInfo([query.playerOne, query.playerTwo])
-      .then( (players) => {
-        console.log("PLAYERS", players);
-      })
+      .then(function (players) {
+        this.setState({
+          isLoading: false,
+          playersInfo: [players[0], players[1]]
+        });
+        console.log(this.state);
+      }.bind(this))
   }
 
   componentWillReceiveProps(nextProps) {
@@ -34,11 +38,11 @@ class ConfirmBattleContainer extends Component {
   }
 
   render() {
-    const { isLoading, playerInfo} = this.state;
+    const { isLoading, playersInfo} = this.state;
     return (
       <ConfirmBattle 
         isLoading={isLoading}
-        playerInfo={playerInfo}
+        playersInfo={playersInfo}
       />
     );
   }
