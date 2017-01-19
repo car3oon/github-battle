@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
+import React, {Component} from 'react'
 
 class Main extends Component {
-  render() {
+  render () {
     return (
       <div className='container'>
         <div className="row">
@@ -12,4 +12,4 @@ class Main extends Component {
   }
 }
 
-export default Main;
+export default Main

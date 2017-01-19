@@ -1,10 +1,10 @@
-import React from 'react';
-import { Router, Route, browserHistory, IndexRoute } from 'react-router';
+import React from 'react'
+import {Router, Route, browserHistory, IndexRoute} from 'react-router'
 
-import Main from '../components/Main';
-import Home from '../components/Home';
-import PromptContainer from '../containers/PromptContainer';
-import ConfirmBattleContainer from '../containers/ConfirmBattleContainer';
+import Main from '../components/Main'
+import Home from '../components/Home'
+import PromptContainer from '../containers/PromptContainer'
+import ConfirmBattleContainer from '../containers/ConfirmBattleContainer'
 
 var routes = (
   <Router history={browserHistory}>
@@ -17,4 +17,4 @@ var routes = (
   </Router>
 )
 
-export default routes;
+export default routes

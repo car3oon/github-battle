@@ -1,5 +1,5 @@
-import React, {PropTypes} from 'react';
-import styles from '../styles';
+import React, {PropTypes} from 'react'
+import styles from '../styles'
 
 var Prompt = (props) => {
   return (
@@ -25,14 +25,14 @@ var Prompt = (props) => {
           </form>
       </div>
     </div>
-  );
+  )
 }
 
 Prompt.propTypes = {
-    header: PropTypes.string.isRequired,
-    onSubmitUser: PropTypes.func.isRequired,
-    onUpdateUser: PropTypes.func.isRequired,
-    username: PropTypes.string.isRequired
-  }
+  header: PropTypes.string.isRequired,
+  onSubmitUser: PropTypes.func.isRequired,
+  onUpdateUser: PropTypes.func.isRequired,
+  username: PropTypes.string.isRequired
+}
 
-export default Prompt;
+export default Prompt

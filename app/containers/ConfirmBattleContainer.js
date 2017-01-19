@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
-import ConfirmBattle from '../components/ConfirmBattle';
-import GithubHelpers from '../utils/GithubHelpers';
+import React, {Component} from 'react'
+import ConfirmBattle from '../components/ConfirmBattle'
+import GithubHelpers from '../utils/GithubHelpers'
 
 class ConfirmBattleContainer extends Component {
-  constructor(props, context) {
-    console.log('initial state');
+  constructor (props, context) {
+    console.log('initial state')
     super(props, context)
     context.router
     this.state = {
@@ -13,39 +13,38 @@ class ConfirmBattleContainer extends Component {
     }
   }
 
-  componentWillMount() {
-    console.log('componentWillMount');
-  }  
+  componentWillMount () {
+    console.log('componentWillMount')
+  }
 
-  componentDidMount() {
-    let query = this.props.location.query;
+  componentDidMount () {
+    let query = this.props.location.query
     GithubHelpers.getPlayersInfo([query.playerOne, query.playerTwo])
       .then(function (players) {
         this.setState({
           isLoading: false,
           playersInfo: [players[0], players[1]]
         });
-        console.log(this.state);
       }.bind(this))
   }
 
-  componentWillReceiveProps(nextProps) {
-    console.log('componentWillReceiveProps', nextProps);
+  componentWillReceiveProps (nextProps) {
+    console.log('componentWillReceiveProps', nextProps)
   }
 
-  componentWillUnmount() {
-    console.log('componentWillUnmount');
+  componentWillUnmount () {
+    console.log('componentWillUnmount')
   }
 
-  render() {
-    const { isLoading, playersInfo} = this.state;
+  render () {
+    const { isLoading, playersInfo } = this.state
     return (
-      <ConfirmBattle 
+      <ConfirmBattle
         isLoading={isLoading}
         playersInfo={playersInfo}
       />
-    );
+    )
   }
 }
 
-export default ConfirmBattleContainer;
+export default ConfirmBattleContainer

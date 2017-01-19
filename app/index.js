@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import ReactDom from 'react-dom';
+import React, {Component} from 'react'
+import ReactDom from 'react-dom'
 import routes from './config/routes'
 
 
@@ -12,10 +12,10 @@ const USER_DATA = {
 class Link extends Component {
 
   _changeURL = () => {
-    window.location.replace(this.props.href);
+    window.location.replace(this.props.href)
   }
 
-  render() {
+  render () {
     return (
       <span
         style={{color: 'blue', cursor: 'pointer'}}
@@ -29,15 +29,15 @@ class Link extends Component {
 }
 
 class ProfilePic extends Component {
-  render() {
+  render () {
     return (
-      <img src={'https://www.github.com/' + this.props.username + '.png'} style={{height: 100, width: 100,  borderRadius: 50, maxWidth: '100%' }} />
+      <img src={'https://www.github.com/' + this.props.username + '.png'} style={{ height: 100, width: 100, borderRadius: 50, maxWidth: '100%' }} />
     )
   }
 }
 
 class ProfileLink extends Component {
-  render() {
+  render () {
     return (
       <div>
         <Link href={'https://www.github.com/' + this.props.username}>
@@ -49,7 +49,7 @@ class ProfileLink extends Component {
 }
 
 class ProfileName extends Component {
-  render() {
+  render () {
     return (
       <div>{this.props.name}</div>
     )
@@ -57,7 +57,7 @@ class ProfileName extends Component {
 }
 
 class Avatar extends Component {
-  render() {
+  render () {
     return (
       <div>
         <ProfilePic username={this.props.user.username} />
@@ -68,4 +68,4 @@ class Avatar extends Component {
   }
 }
 
-ReactDom.render(routes, document.getElementById('app'));
+ReactDom.render(routes, document.getElementById('app'))
