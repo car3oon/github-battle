@@ -1,10 +1,9 @@
 import React, {PropTypes} from 'react'
 import {Link} from 'react-router'
 import styles from '../styles'
+import UserDetails from './UserDetails'
+import UserDetailsWrapper from './UserDetailsWrapper'
 
-var puke = (obj) => {
-  return <pre><code>{JSON.stringify(obj, null, '')}</code></pre>
-}
 
 var ConfirmBattle = (props) => {
   return (
@@ -12,15 +11,13 @@ var ConfirmBattle = (props) => {
     ? <p>LOADING!</p>
     : <div className="jumbotron col-sm-12 text-sm-center" style={styles.transparentBg}>
       <h1>Confirm Players</h1>
-      <div className='col-sm-8 offset-sm-2'>
-        <div className='col-sm-6'>
-          <p className='lead'>Player 1</p>
-          {puke(props.playersInfo[0])}
-        </div>
-        <div className='col-sm-6'>
-          <p className='lead'>Player 2</p>
-          {puke(props.playersInfo[1])}
-        </div>
+      <div className='col-sm-8 offset-sm-2' style={styles.space}>
+        <UserDetailsWrapper header='Player One'>
+          <UserDetails info={props.playersInfo[0]} />
+        </UserDetailsWrapper>
+        <UserDetailsWrapper header='Player Two'>
+          <UserDetails info={props.playersInfo[1]} />
+        </UserDetailsWrapper>
       </div>
       <div className='col-sm-8 offset-sm-2'>
         <div className='col-sm-12 text-sm-center' style={styles.space}>
