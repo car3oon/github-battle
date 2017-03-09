@@ -24,7 +24,7 @@ class ConfirmBattleContainer extends Component {
         this.setState({
           isLoading: false,
           playersInfo: [players[0], players[1]]
-        });
+        })
       }.bind(this))
   }
 
@@ -36,11 +36,21 @@ class ConfirmBattleContainer extends Component {
     console.log('componentWillUnmount')
   }
 
+  _handleInitiateBattle = () => {
+    this.context.router.push({
+      pathname: '/results',
+      state: {
+        playersInfo: this.state.playersInfo
+      }
+    })
+  }
+
   render () {
     const { isLoading, playersInfo } = this.state
     return (
       <ConfirmBattle
         isLoading={isLoading}
+        onInitiateBattle={this._handleInitiateBattle}
         playersInfo={playersInfo}
       />
     )
